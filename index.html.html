@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Saya - Nurhafiz Alghifari</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header-profil">
+        <img src="WhatsApp Image 2026-11-05 at 09.28.35.jpeg" alt="Foto Profil Nurhafiz" class="gambar-profil">
+        <h1>Nurhafiz Alghifari</h1>
+        <p id="teks-ngetik" class="teks-ngetik"></p>
+    </header>
+
+    <nav class="navigasi">
+        <a href="#biodata">Biodata</a>
+        <a href="#keahlian">Keahlian</a>
+        <a href="#proyek">Proyek</a>
+        <a href="#kontak">Kontak</a>
+        <button id="tombol-tema" class="tombol-tema">🌙 Mode Gelap</button>
+    </nav>
+
+    <main class="konten-utama">
+        <section id="biodata" class="fade-in">
+            <h2>Biodata Diri</h2>
+            <p>Halo! Saya adalah mahasiswa yang memiliki ketertarikan kuat di bidang pengembangan perangkat lunak dan aplikasi web.</p>
+            <ul class="daftar-biodata">
+                <li><strong>Nama Lengkap :</strong> Nurhafiz Alghifari</li>
+                <li><strong>NIM :</strong> 240511154</li>
+                <li><strong>Kelas :</strong> TI24F</li>
+                <li><strong>Program Studi :</strong> Teknik Informatika</li>
+                <!-- Email Anda sudah diperbarui di sini -->
+                <li><strong>Email :</strong> nurhafizalgi455@gmail.com</li>
+            </ul>
+        </section>
+
+        <section id="keahlian" class="fade-in">
+            <h2>Keahlian Utama</h2>
+            <div class="wadah-keahlian">
+                <div class="kotak-keahlian">HTML, CSS, JavaScript</div>
+                <div class="kotak-keahlian">Visual Studio Code & Git</div>
+                <div class="kotak-keahlian">Firebase Database</div>
+                <div class="kotak-keahlian">Netlify Deployment</div>
+            </div>
+        </section>
+
+        <section id="proyek" class="fade-in">
+            <h2>Proyek Saya</h2>
+            <div class="wadah-proyek">
+                <div class="kotak-proyek">
+                    <h3>Sistem Manajemen Inventaris Podomoro Motor</h3>
+                    <p>Rancang bangun sistem informasi pengelolaan stok dan penjualan motor bekas berbasis web.</p>
+                    <br>
+                    <button id="tombol-detail" class="tombol-submit">Lihat Detail Proyek</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontak" class="fade-in">
+            <h2>Hubungi Saya</h2>
+            <!-- Menambahkan keterangan email langsung Anda -->
+            <p>Silakan isi formulir di bawah ini atau kirim email langsung ke <strong>nurhafizalgi455@gmail.com</strong>.</p>
+            <form id="form-kontak" class="form-kontak">
+                <input type="text" id="nama" placeholder="Nama Lengkap Anda" required>
+                <input type="email" id="email" placeholder="Alamat Email Anda" required>
+                <textarea id="pesan" rows="4" placeholder="Tulis pesan Anda di sini..." required></textarea>
+                <button type="submit" class="tombol-submit">Kirim Pesan</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Nurhafiz Alghifari (TI24F). Dibuat untuk Tugas Pemrograman Web.</p>
+    </footer>
+
+    <div id="modal-proyek" class="modal">
+        <div class="modal-konten">
+            <span id="tutup-modal" class="tutup">&times;</span>
+            <h3>Detail Proyek: Podomoro Motor</h3>
+            <p>Proyek ini adalah sistem informasi lengkap untuk showroom Podomoro Motor. Fitur-fitur utama yang dikembangkan meliputi:</p>
+            <ul>
+                <li>Sistem autentikasi dan manajemen foto profil pengguna.</li>
+                <li>Pelacakan data kendaraan, pelat nomor (nopol), dan tanggal masuk.</li>
+                <li>Pencatatan riwayat transaksi penjualan secara detail.</li>
+                <li>Input kustom harga jual dan beli kendaraan.</li>
+            </ul>
+        </div>
+    </div>
+
+    <button id="tombol-ke-atas" class="tombol-ke-atas" title="Kembali ke atas">⬆️</button>
+
+    <script>
+        const tombolTema = document.getElementById('tombol-tema');
+        tombolTema.addEventListener('click', function() {
+            document.body.classList.toggle('tema-gelap');
+            tombolTema.textContent = document.body.classList.contains('tema-gelap') ? '☀️ Mode Terang' : '🌙 Mode Gelap';
+        });
+
+        const teksTujuan = "Mahasiswa Teknik Informatika UMC (TI24F)";
+        const elemenTeks = document.getElementById('teks-ngetik');
+        let indexHuruf = 0;
+        function efekNgetik() {
+            if (indexHuruf < teksTujuan.length) {
+                elemenTeks.innerHTML += teksTujuan.charAt(indexHuruf);
+                indexHuruf++;
+                setTimeout(efekNgetik, 80);
+            }
+        }
+        window.onload = efekNgetik;
+
+        const tombolKeAtas = document.getElementById('tombol-ke-atas');
+        window.onscroll = function() {
+            tombolKeAtas.style.display = (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) ? "block" : "none";
+        };
+        tombolKeAtas.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        document.getElementById('form-kontak').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nama = document.getElementById('nama').value;
+            alert('Halo ' + nama + ', pesan Anda kepada Nurhafiz telah terkirim!');
+            this.reset();
+        });
+
+        const modal = document.getElementById("modal-proyek");
+        const btnDetail = document.getElementById("tombol-detail");
+        const spanTutup = document.getElementById("tutup-modal");
+
+        btnDetail.onclick = () => modal.style.display = "block";
+        spanTutup.onclick = () => modal.style.display = "none";
+        window.onclick = (event) => { if (event.target == modal) modal.style.display = "none"; }
+
+        const elemenFadeIn = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('muncul');
+            });
+        }, { threshold: 0.15 });
+        elemenFadeIn.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

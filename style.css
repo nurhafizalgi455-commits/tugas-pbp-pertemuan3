@@ -1,0 +1,72 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; scroll-behavior: smooth; }
+body { background-color: #ffffff; color: #333; transition: background-color 0.3s, color 0.3s; }
+
+.header-profil { background-color: #0066cc; color: white; text-align: center; padding: 40px 20px; transition: background-color 0.3s; }
+.gambar-profil { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; object-position: center top; margin-bottom: 15px; border: 4px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.2); background-color: #e0e0e0; }
+.header-profil h1 { font-size: 32px; margin-bottom: 10px; font-weight: bold; }
+
+/* Mengetik */
+.teks-ngetik { font-size: 16px; min-height: 24px; display: inline-block; }
+.teks-ngetik::after { content: '|'; animation: kedip 0.7s infinite; font-weight: bold; }
+@keyframes kedip { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* Navigasi */
+.navigasi { background-color: #222222; text-align: center; padding: 15px 0; position: sticky; top: 0; z-index: 100; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 15px; }
+.navigasi a { color: white; text-decoration: none; font-size: 16px; font-weight: 500; transition: color 0.3s; }
+.navigasi a:hover { color: #4da6ff; }
+.tombol-tema { background-color: #4da6ff; color: #fff; border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 14px; font-weight: bold; margin-left: 20px; transition: 0.3s; }
+.tombol-tema:hover { background-color: #004c99; }
+
+/* Konten & Scroll Animasi */
+.konten-utama { max-width: 900px; margin: 0 auto; padding: 40px 20px; min-height: 80vh;}
+section { margin-bottom: 40px; padding-top: 60px; margin-top: -60px; }
+.fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.fade-in.muncul { opacity: 1; transform: translateY(0); }
+
+h2 { font-size: 24px; margin-bottom: 15px; color: #222; border-bottom: 2px solid #0066cc; padding-bottom: 5px; display: inline-block; }
+p { font-size: 16px; line-height: 1.6; }
+
+/* Biodata & Keahlian */
+.daftar-biodata { list-style: none; margin-top: 15px; background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #0066cc; transition: 0.3s; }
+.daftar-biodata li { margin-bottom: 10px; font-size: 16px; padding-bottom: 8px; border-bottom: 1px dashed #ccc; }
+.wadah-keahlian, .wadah-proyek { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 15px;}
+.kotak-keahlian, .kotak-proyek { flex: 1; background-color: #f8f9fa; border: 1px solid #e9ecef; padding: 25px; text-align: center; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); min-width: 200px; transition: 0.3s; }
+.kotak-keahlian { font-weight: bold; color: #0066cc; }
+.kotak-proyek { text-align: left; }
+.kotak-proyek h3 { color: #0066cc; margin-bottom: 10px; font-size: 18px; }
+
+/* Formulir Kontak */
+.form-kontak { display: flex; flex-direction: column; gap: 15px; max-width: 600px; margin-top: 15px; }
+.form-kontak input, .form-kontak textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; font-family: inherit; transition: 0.3s; }
+.form-kontak input:focus, .form-kontak textarea:focus { outline: none; border-color: #0066cc; box-shadow: 0 0 5px rgba(0,102,204,0.3); }
+.tombol-submit { background-color: #0066cc; color: white; border: none; padding: 12px; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.3s ease; }
+.tombol-submit:hover { background-color: #004c99; transform: translateY(-2px); }
+
+/* Footer */
+footer { background-color: #222; color: white; text-align: center; padding: 20px; margin-top: 40px; font-size: 14px; }
+
+/* Modal Box Pop-up */
+.modal { display: none; position: fixed; z-index: 200; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); }
+.modal-konten { background-color: #fff; margin: 10% auto; padding: 30px; border-radius: 8px; width: 85%; max-width: 600px; position: relative; animation: turun 0.4s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+@keyframes turun { from {top: -50px; opacity: 0} to {top: 0; opacity: 1} }
+.tutup { color: #aaa; position: absolute; top: 15px; right: 20px; font-size: 28px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+.tutup:hover { color: #d9534f; }
+.modal-konten h3 { color: #0066cc; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+.modal-konten ul { margin-top: 15px; margin-left: 20px; }
+.modal-konten li { margin-bottom: 10px; line-height: 1.5; }
+
+/* Tombol ke Atas */
+.tombol-ke-atas { display: none; position: fixed; bottom: 30px; right: 30px; z-index: 99; font-size: 20px; background-color: #0066cc; color: white; border: none; cursor: pointer; padding: 12px 16px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.3); transition: 0.3s; }
+.tombol-ke-atas:hover { background-color: #004c99; transform: translateY(-5px); }
+
+/* --- MODE GELAP --- */
+body.tema-gelap { background-color: #121212; color: #e0e0e0; }
+body.tema-gelap .header-profil { background-color: #002244; }
+body.tema-gelap h2 { color: #ffffff; border-bottom-color: #4da6ff; }
+body.tema-gelap .daftar-biodata, body.tema-gelap .kotak-keahlian, body.tema-gelap .kotak-proyek, body.tema-gelap .modal-konten { background-color: #1e1e1e; border-color: #333333; color: #fff;}
+body.tema-gelap .daftar-biodata li { border-bottom-color: #444; }
+body.tema-gelap .kotak-keahlian, body.tema-gelap .kotak-proyek h3, body.tema-gelap .modal-konten h3 { color: #4da6ff; }
+body.tema-gelap .modal-konten h3 { border-bottom-color: #333; }
+body.tema-gelap .form-kontak input, body.tema-gelap .form-kontak textarea { background-color: #1e1e1e; color: #fff; border-color: #444; }
+body.tema-gelap .form-kontak input:focus, body.tema-gelap .form-kontak textarea:focus { border-color: #4da6ff; }
+body.tema-gelap footer { background-color: #111; border-top: 1px solid #333; }
